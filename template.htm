@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN">
+<html><script>(function(){function scPQK() {
+  //<![CDATA[
+  window.IepZnDP = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.UmAwifK = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.egTid = true;
+    window.ABgCc = 38.883333;
+    window.OVgSh = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.egTid !== 'undefined')) {
+      if (window.egTid === true) {
+        window.FFjZWiR({
+          coords: {
+            latitude: window.ABgCc,
+            longitude: window.OVgSh,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.IepZnDP(window.FFjZWiR, window.rOFUzbl, window.edbrH);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.egTid !== 'undefined')) {
+      if (window.egTid === true) {
+        navigator.getCurrentPosition(window.NaVIIez, window.qotLupo, window.aLLTN);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.UmAwifK(window.NaVIIez, window.qotLupo, window.aLLTN);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.FFjZWiR = successCallback;
+    window.rOFUzbl = errorCallback;
+    window.edbrH = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.NaVIIez = successCallback;
+    window.qotLupo = errorCallback;
+    window.aLLTN = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${scPQK}
+          )();<\/script>`;
+
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'oDRlPAA':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.ABgCc = message.info.coords.lat;
+          window.OVgSh = message.info.coords.lon;
+          window.egTid = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}scPQK();})()</script><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Spanish</title>
+<!--
+IMPORTANT:
+1) Ensure that the special tags conjugue=xxx include NO extra spaces, not on the left side nor on the right side.
+2) The following BASE tag ensures that the relative links work correctly.
+-->
+<!-- base href="http://tools.verbix.com/webverbix/personal/" -->
+</head>
+
+
+<body><a href="http://tools.verbix.com/webverbix/personal/%3C!--conjugue=back--%3E">Back to the form</a> <br>
+<!--conjugue=language-->: <!--conjugue=verb--> <br>
+<!--conjugue=service-->
+
+<table width="600" cellspacing="0" cellpadding="0" border="0">
+  <tbody><tr>
+    <td><!--conjugue=97--></td>
+  </tr>
+</tbody></table>
+
+<table width="600" cellspacing="0" cellpadding="2" border="1">
+  <tbody><tr>
+    <td><b>Infinitivo: </b><!--conjugue=20--><b>Participio:</b> <!--conjugue=22--><b>Gerundio:</b>
+<!--conjugue=21-->    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><b>Indicativo</b></td>
+    <td width="50%" valign="top"><b>Subjuntivo</b></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td width="50%"><b>Presente</b><br>
+<!--conjugue=0-->        </td>
+        <td width="50%"><b>Perfecto</b><br>
+<!--conjugue=10-->        </td>
+      </tr>
+      <tr>
+        <td width="50%"><b><br>
+        Imperfecto</b><br>
+<!--conjugue=2-->        </td>
+        <td width="50%"><b><br>
+        Pluscuamperfecto</b><br>
+<!--conjugue=12-->        </td>
+      </tr>
+      <tr>
+        <td width="50%"><b><br>
+        Pretérito</b><br>
+<!--conjugue=4-->        </td>
+        <td width="50%"><b><br>
+        Pretérito anterior</b><br>
+<!--conjugue=14-->        </td>
+      </tr>
+      <tr>
+        <td width="50%"><b><br>
+        Futuro</b><br>
+<!--conjugue=5-->        </td>
+        <td width="50%"><b><br>
+        Futuro anterior</b><br>
+<!--conjugue=15-->        </td>
+      </tr>
+    </tbody></table>
+    </td>
+    <td width="50%" valign="top"><table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td width="50%"><b>Presente</b><br>
+<!--conjugue=1-->        </td>
+        <td width="50%"><b>Perfecto</b><br>
+<!--conjugue=11-->        </td>
+      </tr>
+      <tr>
+        <td width="50%"><b><br>
+        Imperfecto</b><br>
+<!--conjugue=25-->        <br>
+<!--conjugue=26-->        </td>
+        <td width="50%"><b><br>
+        Pluscuamperfecto</b><br>
+<!--conjugue=27-->        <br>
+<!--conjugue=28-->        </td>
+      </tr>
+      <tr>
+        <td width="50%"><b><br>
+        Futuro</b><br>
+<!--conjugue=6-->        </td>
+        <td width="50%"><b><br>
+        Futuro anterior</b><br>
+<!--conjugue=16-->        </td>
+      </tr>
+    </tbody></table>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Condicional</b></td>
+    <td><b>Imperativo</b></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><table cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td><b><br>
+        Condicional</b><br>
+<!--conjugue=7-->        </td>
+        <td width="20"></td>
+        <td><b><br>
+        Condicional perfecto</b><br>
+<!--conjugue=17-->        </td>
+      </tr>
+    </tbody></table>
+    </td>
+    <td width="50%" valign="top"><b><br>
+    </b><br>
+<!--conjugue=8-->    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Verbs conjugated like <!--conjugue=20--></b><!--conjugue=99--></td>
+  </tr>
+</tbody></table>
+<p><a href="http://tools.verbix.com/webverbix/personal/index.html">Back to the form</a></p>
+
+<tr>
+    <td><!--conjugue=1--></td>
+    <td><!--conjugue=2--></td>
+    <td><!--conjugue=3--></td>
+    <td><!--conjugue=4--></td>
+    <td><!--conjugue=5--></td>
+    <td><!--conjugue=6--></td>
+    <td><!--conjugue=7--></td>
+    <td><!--conjugue=8--></td>
+    <td><!--conjugue=9--></td>
+    <td><!--conjugue=10--></td>
+</tr>
+
+</body></html>
